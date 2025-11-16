@@ -8,10 +8,9 @@ services:
     env_file:
       - .env
     ports:
-      - "8000:8000"
-    volumes:
-      - /home/myu/Documents/Git/Ping-API-Project/api:/app/api
-    
+      - "8000:8000"     
+    networks:
+      - Main    
 
 
 networks:
