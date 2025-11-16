@@ -5,7 +5,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN apt update && apt install -y iputils-ping && pip install -r requirements.txt
+RUN apt update && \
+    apt install -y iputils-ping traceroute && \
+    pip install -r requirements.txt
 
 ENV PYTHONPATH=/app
 
