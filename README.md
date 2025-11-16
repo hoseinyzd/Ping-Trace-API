@@ -42,7 +42,3 @@ curl http://localhost:8000/trace/8.8.8.8
 - قابلیت توسعه آسان برای ابزارهای شبکه سفارشی  
 
 ---
-
-## 👨‍💻 نویسنده
-**Hossein Yzd**  
-[GitHub: hoseinyzd](https://github.com/hoseinyzd)
