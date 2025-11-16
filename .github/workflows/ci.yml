@@ -23,20 +23,19 @@ jobs:
 
       - name: Run tests
         run: pytest
-
   deploy:
-    needs: test     # یعنی فقط اگر تست موفق بود اجرا بشه
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to VPS
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            cd ${{ secrets.PROJECT_PATH }}
-            git pull origin master
-            docker compose down
-            docker compose up -d --build
+  needs: test
+  runs-on: ubuntu-latest
+  steps:
+    - name: Deploy to VPS
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          cd ${{ secrets.PROJECT_PATH }}
+          git pull origin master
+          docker compose down
+          docker compose up -d --build
 
